@@ -1,5 +1,5 @@
 <ul class="list-unstyled">
-  <% microposts.each do |micropost| %>
+  <% like_microposts.each do |micropost| %>
     <li class="media mb-3">
       <img class="mr-2 rounded" src="<%= gravatar_url(micropost.user, { size: 50 }) %>" alt="">
       <div class="media-body">
@@ -10,7 +10,7 @@
           <p class="mb-0"><%= micropost.content %></p>
         </div>
         <div class="row">
-          <div class = "col-md-2">
+          <div class = "col-md-3">
             <!--ループでmicropostの中身が１つずつ取り出されている-->
             <!--ここで渡すべきはmicropostそのもの-->
             <%= render 'favorites/like_button', micropost: micropost %>
@@ -24,5 +24,5 @@
       </div>
     </li>
   <% end %>
-  <%= paginate microposts %>
+  <%= paginate like_microposts %>
 </ul>
